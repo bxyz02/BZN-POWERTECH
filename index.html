@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BZN POWERTECH - PC Components</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=ASQRbLVRA1dU-6gRLGNkivQKGDscILq8XDQYydtAnss4awKWxUQnME1PJwU7dtsqGjWTc4XZ0Z2s2f_2&currency=USD"></script>
+
+    <style>
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0052cc;
+            --dark: #0a0a0a;
+            --light: #f9f9f9;
+            --gray: #777;
+            --white: #fff;
+            --shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .logo {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .tagline {
+            font-weight: 300;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1926&q=80') center/cover no-repeat;
+            height: 70vh;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .product {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            border-top: 4px solid var(--primary);
+        }
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 102, 255, 0.2);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            padding: 1rem;
+            background-color: #f5f5f5;
+            transition: var(--transition);
+        }
+
+        .product:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            margin: 0 0 0.5rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .product-category {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin: 0.5rem 0 1rem;
+            color: var(--dark);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .order-btn {
+            padding: 0.7rem 1.5rem;
+            background-color: var(--primary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+            flex-grow: 1;
+            text-align: center;
+            margin-right: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .order-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .wishlist-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--gray);
+            cursor: pointer;
+            transition: var(--transition);
+            padding: 0.5rem;
+        }
+
+        .wishlist-btn:hover {
+            color: #ff4757;
+        }
+
+        .rating {
+            color: var(--primary);
+            margin: 0.5rem 0;
+        }
+
+        .features {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .feature i {
+            margin-right: 0.5rem;
+            color: var(--primary);
+        }
+
+        /* Order Form Styles */
+        .order-form-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .order-form-container.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .order-form {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close-form {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .form-success {
+            text-align: center;
+            padding: 2rem;
+            display: none;
+        }
+
+        .form-success i {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-family: inherit;
+        }
+
+        .newsletter-form button {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin: 1rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .products {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 0.5rem;
+            }
+
+            .newsletter-form button {
+                border-radius: 4px;
+                padding: 0.8rem;
+            }
+
+            .order-form {
+                width: 95%;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .product {
+            animation: fadeIn 0.5s ease forwards;
+            opacity: 0;
+        }
+
+        .product:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .product:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .product:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .product:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .product:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .product:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .product:nth-child(7) {
+            animation-delay: 0.7s;
+        }
+
+        .product:nth-child(8) {
+            animation-delay: 0.8s;
+        }
+
+        .product:nth-child(9) {
+            animation-delay: 0.9s;
+        }
+
+        .product:nth-child(10) {
+            animation-delay: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">BZN <span>POWERTECH</span></div>
+        <div class="tagline">Premium PC Components & Gaming Gear</div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Ultimate PC Components</h1>
+            <p>Upgrade your rig with our high-performance components and accessories for gamers and professionals</p>
+        </div>
+    </section>
+
+    <section class="products">
+        <!-- Product 1 -->
+        <div class="product">
+            <span class="product-badge">Popular</span>
+            <img src="remove4.png" alt="RAM DDR4 8GB" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Memory</span>
+                <h3>RAM DDR4 8GB</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(42)</span>
+                </div>
+                <div class="price">4,500 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> 3200MHz</div>
+                    <div class="feature"><i class="fas fa-check"></i> CL16</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="RAM DDR4 8GB" data-price="4500">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product">
+            <span class="product-badge">Best Seller</span>
+            <img src="remove4 2.png" alt="RAM DDR4 16GB" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Memory</span>
+                <h3>RAM DDR4 16GB</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(36)</span>
+                </div>
+                <div class="price">8,200 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> 3200MHz</div>
+                    <div class="feature"><i class="fas fa-check"></i> CL16</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="RAM DDR4 16GB" data-price="8200">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product">
+            <img src="DDR3.jpg" alt="RAM DDR3 8GB" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Memory</span>
+                <h3>RAM DDR3 8GB</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(28)</span>
+                </div>
+                <div class="price">3,800 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> 1600MHz</div>
+                    <div class="feature"><i class="fas fa-check"></i> CL11</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="RAM DDR3 8GB" data-price="3800">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product">
+            <span class="product-badge">New</span>
+            <img src="x7.jpeg"
+                alt="Poco X7 Pro" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Smartphone</span>
+                <h3>Poco X7 Pro</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(31)</span>
+                </div>
+                <div class="price">45,000 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> 6.67" AMOLED</div>
+                    <div class="feature"><i class="fas fa-check"></i> 128GB Storage</div>
+                    <div class="feature"><i class="fas fa-check"></i> 8GB RAM</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="Poco X7 Pro" data-price="45000">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="product">
+            <img src="Realme.webp" alt="Realme C63" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Smartphone</span>
+                <h3>Realme C63</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(19)</span>
+                </div>
+                <div class="price">32,500 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> 6.7" Display</div>
+                    <div class="feature"><i class="fas fa-check"></i> 128GB Storage</div>
+                    <div class="feature"><i class="fas fa-check"></i> 6GB RAM</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="Realme C63" data-price="32500">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="product">
+            <img src="watch.webp" alt="Haylo Watch 2" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Smart Watch</span>
+                <h3>Haylo Watch 2</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(47)</span>
+                </div>
+                <div class="price">12,000 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> 1.9" Display</div>
+                    <div class="feature"><i class="fas fa-check"></i> Heart Rate Monitor</div>
+                    <div class="feature"><i class="fas fa-check"></i> IP68 Waterproof</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="Haylo Watch 2" data-price="12000">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="product">
+            <img src="C30.webp" alt="Realme C30s" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Smartphone</span>
+                <h3>Realme C30s</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(23)</span>
+                </div>
+                <div class="price">25,000 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> 6.5" Display</div>
+                    <div class="feature"><i class="fas fa-check"></i> 64GB Storage</div>
+                    <div class="feature"><i class="fas fa-check"></i> 4GB RAM</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="Realme C30s" data-price="25000">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="product">
+            <span class="product-badge">Limited</span>
+            <img src="mouse.jpeg" alt="Baseus Wireless Mouse" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Accessories</span>
+                <h3>Baseus Wireless Mouse</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(27)</span>
+                </div>
+                <div class="price">3,500 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> Bluetooth 5.0</div>
+                    <div class="feature"><i class="fas fa-check"></i> Silent Click</div>
+                    <div class="feature"><i class="fas fa-check"></i> 1600DPI</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="Baseus Wireless Mouse" data-price="3500">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="product">
+            <img src="pen.jpeg" alt="Baseus Wireless Pen" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Accessories</span>
+                <h3>Baseus Wireless Pen</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span>(38)</span>
+                </div>
+                <div class="price">4,200 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> Stylus Pen</div>
+                    <div class="feature"><i class="fas fa-check"></i> 4096 Pressure</div>
+                    <div class="feature"><i class="fas fa-check"></i> Palm Rejection</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="Baseus Wireless Pen" data-price="4200">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="product">
+            <span class="product-badge">New</span>
+            <img src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="PS4 Controller" class="product-img">
+            <div class="product-info">
+                <span class="product-category">Gaming</span>
+                <h3>PS4 Controller</h3>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                    <span>(15)</span>
+                </div>
+                <div class="price">8,000 DA</div>
+                <div class="features">
+                    <div class="feature"><i class="fas fa-check"></i> Wireless</div>
+                    <div class="feature"><i class="fas fa-check"></i> Vibration</div>
+                    <div class="feature"><i class="fas fa-check"></i> Touch Pad</div>
+                </div>
+                <div class="product-actions">
+                    <button class="order-btn" data-product="PS4 Controller" data-price="8000">
+                        <i class="fas fa-shopping-cart"></i> Commander
+                    </button>
+                    <button class="wishlist-btn" aria-label="Ajouter à la liste de souhaits">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form (single instance) -->
+    <div class="order-form-container" id="orderFormContainer">
+        <div class="order-form">
+            <button class="close-form" id="closeForm">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2 class="form-title" id="formTitle">Commander <span id="productName"></span></h2>
+            <form id="orderForm">
+                <div class="form-group">
+                    <label for="product">Produit</label>
+                    <input type="text" id="product" name="product" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="price">Prix</label>
+                    <input type="text" id="price" name="price" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="name">Nom complet*</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone*</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Adresse complète*</label>
+                    <textarea id="address" name="address" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="wilaya">Wilaya*</label>
+                    <select id="wilaya" name="wilaya" required>
+                        <option value="">Sélectionnez votre wilaya</option>
+                        <option value="Adrar">Adrar</option>
+                        <option value="Chlef">Chlef</option>
+                        <option value="Laghouat">Laghouat</option>
+                        <option value="Oum El Bouaghi">Oum El Bouaghi</option>
+                        <option value="Batna">Batna</option>
+                        <option value="Béjaïa">Béjaïa</option>
+                        <option value="Biskra">Biskra</option>
+                        <option value="Béchar">Béchar</option>
+                        <option value="Blida">Blida</option>
+                        <option value="Bouira">Bouira</option>
+                        <option value="Tamanrasset">Tamanrasset</option>
+                        <option value="Tébessa">Tébessa</option>
+                        <option value="Tlemcen">Tlemcen</option>
+                        <option value="Tiaret">Tiaret</option>
+                        <option value="Tizi Ouzou">Tizi Ouzou</option>
+                        <option value="Alger">Alger</option>
+                        <option value="Djelfa">Djelfa</option>
+                        <option value="Jijel">Jijel</option>
+                        <option value="Sétif">Sétif</option>
+                        <option value="Saïda">Saïda</option>
+                        <option value="Skikda">Skikda</option>
+                        <option value="Sidi Bel Abbès">Sidi Bel Abbès</option>
+                        <option value="Annaba">Annaba</option>
+                        <option value="Guelma">Guelma</option>
+                        <option value="Constantine">Constantine</option>
+                        <option value="Médéa">Médéa</option>
+                        <option value="Mostaganem">Mostaganem</option>
+                        <option value="M'Sila">M'Sila</option>
+                        <option value="Mascara">Mascara</option>
+                        <option value="Ouargla">Ouargla</option>
+                        <option value="Oran">Oran</option>
+                        <option value="El Bayadh">El Bayadh</option>
+                        <option value="Illizi">Illizi</option>
+                        <option value="Bordj Bou Arréridj">Bordj Bou Arréridj</option>
+                        <option value="Boumerdès">Boumerdès</option>
+                        <option value="El Tarf">El Tarf</option>
+                        <option value="Tindouf">Tindouf</option>
+                        <option value="Tissemsilt">Tissemsilt</option>
+                        <option value="El Oued">El Oued</option>
+                        <option value="Khenchela">Khenchela</option>
+                        <option value="Souk Ahras">Souk Ahras</option>
+                        <option value="Tipaza">Tipaza</option>
+                        <option value="Mila">Mila</option>
+                        <option value="Aïn Defla">Aïn Defla</option>
+                        <option value="Naâma">Naâma</option>
+                        <option value="Aïn Témouchent">Aïn Témouchent</option>
+                        <option value="Ghardaïa">Ghardaïa</option>
+                        <option value="Relizane">Relizane</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantité*</label>
+                    <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes supplémentaires</label>
+                    <textarea id="notes" name="notes"></textarea>
+                </div>
+                <div id="paypal-button-container"></div>
+
+                <button type="submit" class="submit-btn">Envoyer la commande</button>
+            </form>
+            <div class="form-success" id="formSuccess">
+                <i class="fas fa-check-circle"></i>
+                <h3>Commande envoyée avec succès!</h3>
+                <p>Nous vous contacterons bientôt pour confirmer votre commande.</p>
+                <button class="order-btn" id="closeSuccess">Retour aux produits</button>
+            </div>
+        </div>
+    </div>
+
+    <section class="newsletter">
+        <h2>Abonnez-vous à notre newsletter</h2>
+        <p>Restez informé sur nos nouveaux produits et promotions spéciales</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Entrez votre adresse email" required>
+            <button type="submit">S'abonner</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À propos de BZN POWERTECH</h3>
+                <p>Votre source fiable pour des composants électroniques et accessoires de qualité depuis 2015.</p>
+                <div class="social-icons">
+                    <a href="https://wa.me/+213671851086"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/BZN-POWERTECH/"><i class="fab fa-instagram"></i></a>
+                    
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> zeboudja,chlef,Algérie</p>
+                <p><i class="fas fa-phone"></i> +213 671 851 086</p>
+                <p><i class="fas fa-envelope"></i> bznpowertech@gmail.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 BZN POWERTECH. Tous droits réservés.
+        </div>
+    </footer>
+
+    <script>
+        // Wishlist button functionality
+        const wishlistButtons = document.querySelectorAll('.wishlist-btn');
+
+        wishlistButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const icon = button.querySelector('i');
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    icon.style.color = '#ff4757';
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    icon.style.color = '';
+                }
+            });
+        });
+
+        // Order Form Functionality
+        const orderFormContainer = document.getElementById('orderFormContainer');
+        const closeForm = document.getElementById('closeForm');
+        const orderForm = document.getElementById('orderForm');
+        const productName = document.getElementById('productName');
+        const productInput = document.getElementById('product');
+        const priceInput = document.getElementById('price');
+        const formSuccess = document.getElementById('formSuccess');
+        const closeSuccess = document.getElementById('closeSuccess');
+        const orderButtons = document.querySelectorAll('.order-btn');
+
+        // Show order form when clicking order buttons
+        orderButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const product = button.getAttribute('data-product');
+                const price = button.getAttribute('data-price');
+
+                productName.textContent = product;
+                productInput.value = product;
+                priceInput.value = price + ' DA';
+
+                orderFormContainer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+
+                // Clear any existing PayPal buttons
+                document.getElementById('paypal-button-container').innerHTML = '';
+
+                // Initialize PayPal button for this product
+                paypal.Buttons({
+                    createOrder: function (data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{
+                                amount: {
+                                    value: (parseInt(price) / 100).toFixed(2) // Convert DA to USD roughly
+                                }
+                            }]
+                        });
+                    },
+                    onApprove: function (data, actions) {
+                        return actions.order.capture().then(function (details) {
+                            alert('Transaction completed by ' + details.payer.name.given_name);
+                            // Submit the form after PayPal payment
+                            document.getElementById('orderForm').submit();
+                        });
+                    }
+                }).render('#paypal-button-container');
+            });
+        });
+
+        // Close order form
+        closeForm.addEventListener('click', () => {
+            orderFormContainer.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close success message
+        closeSuccess.addEventListener('click', () => {
+            orderFormContainer.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            formSuccess.style.display = 'none';
+            orderForm.style.display = 'block';
+        });
+
+        // Handle form submission
+        orderForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(orderForm);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                // Send data to your email using FormSubmit.co
+                const response = await fetch('https://formsubmit.co/ajax/BZNPOWERTECH@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: data.name,
+                        phone: data.phone,
+                        email: data.email,
+                        product: data.product,
+                        price: data.price,
+                        quantity: data.quantity,
+                        address: data.address,
+                        wilaya: data.wilaya,
+                        notes: data.notes,
+                        _subject: 'Nouvelle commande BZN POWERTECH',
+                        _template: 'table'
+                    })
+                });
+
+                if (response.ok) {
+                    // Show success message
+                    orderForm.style.display = 'none';
+                    formSuccess.style.display = 'block';
+
+                    // Reset form
+                    orderForm.reset();
+                } else {
+                    alert('Une erreur s\'est produite. Veuillez réessayer plus tard.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Une erreur s\'est produite. Veuillez réessayer plus tard.');
+            }
+        });
+
+        // Close form when clicking outside
+        orderFormContainer.addEventListener('click', (e) => {
+            if (e.target === orderFormContainer) {
+                orderFormContainer.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+    </script>
+</body>
+
+</html>
